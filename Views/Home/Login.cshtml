@@ -1,0 +1,32 @@
+﻿@* @*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="logi-title">
+    <h2>Login</h2>
+</div>
+<form action="/login" method="post">
+    <div>
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Entrar</button>
+</form>
+
+
+@* <div class="Login">
+    <h1 id="login-title"> Faça seu Login</h1>
+    <h4 id="login-user">Usuário</h4>
+    <textarea id="text-user" placeholder="Digite o seu usuário:"></textarea>
+    <h4 id="login-passw">Senha</h4>
+    <input />
+    <textarea id="text-passw" placeholder="Digite sua senha:"></textarea>
+    <button></button>
+</div> *@
