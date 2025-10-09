@@ -30,6 +30,7 @@ namespace WebSuportePim.Controllers
             ("teste", "abc")
         };
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
