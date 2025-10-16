@@ -1,31 +1,109 @@
+/* =================================
+   CONFIGURAÇÕES GLOBAIS E BODY
+   ================================= */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
+/* Removemos a margem do body para o container ocupar a tela toda */
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #f8f9fa; /* Um fundo cinza claro para a página */
 }
 
-.text-home{
-    text-align:center;
+
+/* =================================
+   LAYOUT PRINCIPAL DA PÁGINA
+   ================================= */
+.main-container {
+    display: flex; /* ATIVA O FLEXBOX! Isso é o mais importante. */
+    width: 100%;
+    height: calc(100vh - 180px); /* Ocupa a altura da tela, descontando navbar e footer */
+    margin-top: 20px;
+    background-color: #fff; /* Fundo branco para o miolo */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-.left{
-    background-color:#5e17eb;
-    max-width: 50px;
+.sidebar {
+    background-color: #6200EE; /* O roxo vibrante do protótipo */
+    flex-basis: 50%; /* Cada barra lateral terá 15% da largura */
+}
+
+.content {
+    flex-grow: 1; /* O conteúdo central ocupa o espaço que sobrar */
+    padding: 40px;
+    /* Centraliza o texto e botão que estiverem aqui dentro */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+    /* =================================
+   ESTILOS DOS TEXTOS
+   ================================= */
+    .content h1 {
+        font-family: 'Playfair Display', serif; /* Use uma fonte serifada elegante */
+        font-size: 2.8rem;
+        color: #333;
+        font-weight: 700;
+    }
+
+    .content p {
+        font-family: 'Roboto', sans-serif; /* Fonte mais limpa para o parágrafo */
+        font-size: 1.1rem;
+        color: #555;
+        max-width: 450px;
+        line-height: 1.6;
+    }
+
+
+/* =================================
+   ESTILO DA NAVBAR E BOTÃO LOGIN
+   ================================= */
+.navbar {
+    border-bottom: none !important; /* Remove a borda padrão */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+a.btn-login-nav {
+    background-color: #6200EE;
+    color: #fff !important; /* !important força a cor sobre o estilo padrão do Bootstrap */
+    border-radius: 50px;
+    padding: 8px 25px !important;
+    margin-left: 15px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+    a.btn-login-nav:hover {
+        background-color: #5600e0;
+        color: #fff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+
+/* =================================
+   ESTILO DO RODAPÉ (FOOTER)
+   ================================= */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
 }
