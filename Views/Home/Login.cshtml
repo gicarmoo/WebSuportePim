@@ -5,22 +5,27 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="logi-title">
-    <h2>Login</h2>
+<div class="login-page">
+<div class="login">
+    <h2 class="login-title">Login</h2>
+
+    <form class="form-login" action="Login" method="post">
+
+
+        <div class="input-login">
+                <label for="username" class="input-label">Usuário:</label>
+                <input type="text" id="username" class="login-field" name="username" required>
+        </div>
+
+            <div class="input-login">
+                <label for="password" class="input-label">Senha:</label>
+                <input type="password" id="password" class="login-field" name="password" required>
+        </div>
+
+        <button class="btn-login" type="submit">Entrar</button>
+
+    </form>
+</div> 
 </div>
 
-<form action="Login" method="post">
-   
-    <div>
-        <label for="username"></label>
-        <input type="text" id="username" name="username" required>
-    </div>
-    
-    <div>
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-
-    <button type="submit">Entrar</button>
-</form>
 
