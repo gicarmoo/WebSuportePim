@@ -205,3 +205,72 @@ transition: background-color 0.2s, transform 0.2s;
     background-color: #8e24aa;
     transform: translateY(-2px);
     }
+
+
+/*Tela abrir chamado*/
+.chamado {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 40px;
+    background-color: #f4f4f9;
+    overflow:auto;
+}
+
+.title-chamado {
+    color: #6a0dff;
+    margin-bottom: 20px;
+}
+
+.form-chamado {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.labelChamado {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.btn-enviar {
+    background-color: #6a0dff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .btn-enviar:hover {
+        background-color: #4b08b6;
+    }
+
+.btn-voltar {
+    display:flex ;
+    margin-top: 20px;
+    padding: 10px 18px;
+    background-color: #6a0dff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+    .btn-voltar:hover {
+        background-color: #4b08b6;
+    }

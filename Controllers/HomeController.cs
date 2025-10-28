@@ -57,12 +57,22 @@ namespace WebSuportePim.Controllers
             }
             else
             {
-                ViewBag.Erro = "Usuário ou senha inválidos.";
+                ViewBag.Mensagem = "Usuário ou senha inválidos.";
                 return View();
             }
         } 
 
         public IActionResult Dashboard()
+        {
+            return View();
+        }
+
+        public IActionResult ChamadoAbertos()
+        {
+            return View();
+        }
+
+        public IActionResult AbrirNovoChamado()
         {
             return View();
         }
