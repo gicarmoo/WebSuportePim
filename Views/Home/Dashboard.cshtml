@@ -4,6 +4,9 @@
 
 @{
      ViewData["Title"] = "Dashboard" ;
+        var nome = Context.Session.GetString("UsuarioNome");
+        var dep = Context.Session.GetString("UsuarioDepartamento");
+    
 }
 
 
@@ -65,7 +68,9 @@
 </head>
  *@
 <body>
-   
+
+    <h2>Bem-vindo, @nome!</h2>
+    <p>Departamento: @dep</p>
     <div class="sidebar">
         <h2>Menu</h2>
         <a href="/Home/Dashboard">🏠 Tela Inicial</a>

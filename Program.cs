@@ -17,6 +17,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthorization();
 
@@ -25,3 +26,11 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Tempo de expiração
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+app.UseSession();  // Adicione após app.UseRouting()

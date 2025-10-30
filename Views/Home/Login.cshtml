@@ -7,24 +7,27 @@
 
 <div class="login-page">
 <div class="login">
-    <h2 class="login-title">Login</h2>
+       
 
-    <form class="form-login" action="Login" method="post">
+        <h2 class="login-title">Login</h2>
 
-
-        <div class="input-login">
-                <label for="username" class="input-label">Usuário:</label>
-                <input type="text" id="username" class="login-field" name="username" required>
-        </div>
-
+        <form class="form-login"  method="post">
             <div class="input-login">
-                <label for="password" class="input-label">Senha:</label>
-                <input type="password" id="password" class="login-field" name="password" required>
-        </div>
+                <label class="input-label" >Email:</label>
+                <input type="email" class="login-field" name="Email" required />
+            </div>
+            <div class="input-login">
+                <label class="input-label">Senha:</label>
+                <input type="password" class="login-field" name="Senha" required />
+            </div>
+            <button class="btn-login" type="submit">Entrar</button>
+        </form>
 
-        <button class="btn-login" type="submit">Entrar</button>
+        @if (ViewBag.Mensagem != null)
+        {
+            <p style="color:red">@ViewBag.Mensagem</p>
+        }
 
-    </form>
 </div> 
 </div>
 

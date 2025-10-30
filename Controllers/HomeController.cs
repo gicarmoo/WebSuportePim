@@ -23,13 +23,6 @@ namespace WebSuportePim.Controllers
             return View();
         }
 
-        private List<(string Usuario, string Senha)> usuarios = new List<(string, string)>
-        {
-            ("admin", "123"),
-            ("giovanna", "456"),
-            ("teste", "abc")
-        };
-
         [HttpGet]
         public IActionResult Login()
         {
@@ -37,22 +30,18 @@ namespace WebSuportePim.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public IActionResult Login(string email, string senha)  // Corrigido: minúscula para combinar com a view
         {
-            bool loginValido = false;
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            Usuario usuario = usuarioDAO.ValidarLogin(email, senha);
 
-            // Laço para validar usuário
-            foreach (var u in usuarios)
+            if (usuario != null)
             {
-                if (u.Usuario == username && u.Senha == password)
-                {
-                    loginValido = true;
-                    break;
-                }
-            }
+                // Armazena informações do usuário na sessão
+                HttpContext.Session.SetString("UsuarioNome", usuario.Nome);
+                HttpContext.Session.SetString("UsuarioDepartamento", usuario.Departamento);
+                HttpContext.Session.SetString("UsuarioEmail", usuario.Email);
 
-            if (loginValido)
-            {
                 return RedirectToAction("Dashboard", "Home");
             }
             else
@@ -60,7 +49,7 @@ namespace WebSuportePim.Controllers
                 ViewBag.Mensagem = "Usuário ou senha inválidos.";
                 return View();
             }
-        } 
+        }
 
         public IActionResult Dashboard()
         {
