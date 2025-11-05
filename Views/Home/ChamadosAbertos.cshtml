@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "ChamadosAbertos";
+}
+
+@model List<SeuProjeto.Models.Chamado>
+
+<div class="calls-container">
+    <div class="header-bar">
+        <button class="back-button" onclick="history.back()">&#x2190;</button>
+        <h1 class="page-title">Todos os chamados</h1>
+    </div>
+
+    <table class="calls-table">
+        <thead>
+            <tr class="header-row">
+                <th class="header-col id-col">ID</th>
+                <th class="header-col title-col">Título</th>
+                <th class="header-col status-col">Status</th>
+                <th class="header-col date-col">Data de Abertura</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                // **LOOP DE ITERAÇÃO DE DADOS:**
+                // Para cada item na lista do Model que veio do seu Controller
+                foreach (var chamado in Model)
+                {
+                    // Determina a classe CSS correta com base no Status do objeto
+                    string statusClass = chamado.Status switch
+                    {
+                        "Aberto" => "status-aberto",
+                        "Em progresso" => "status-em-progresso",
+                        "Resolvido" => "status-resolvido",
+                        _ => "" // Default/Outros
+                    };
+
+                    <tr>
+                        <td data-label="ID">
+                            @chamado.Id
+                        </td>
+                        <td data-label="Título">
+                            @chamado.Titulo
+                        </td>
+                        <td data-label="Status">
+                            <span class="status-badge @statusClass">
+                                @chamado.Status
+                            </span>
+                        </td>
+                        <td data-label="Data de Abertura">
+                            @chamado.DataAbertura.ToString("dd/MM/yy")
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="no-data-message">Nenhum chamado encontrado.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

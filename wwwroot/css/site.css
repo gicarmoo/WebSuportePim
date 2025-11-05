@@ -274,3 +274,218 @@ input[type="file"] {
     .btn-voltar:hover {
         background-color: #4b08b6;
     }
+
+
+
+
+/* Paleta de Cores (Definida para facilitar a manutenção) */
+:root {
+    --primary-purple: #5c2d91; /* Roxo principal */
+    --light-purple: #8a4edb;
+    --status-aberto: #6aa84f; /* Verde para 'Aberto' */
+    --status-em-progresso: #f6b26b; /* Laranja para 'Em progresso' */
+    --status-resolvido: #e06666; /* Vermelho para 'Resolvido' */
+    --text-color: #333;
+    --line-color: #e0e0e0;
+    --background-light: #f5f5f5;
+    --header-gradient: linear-gradient(90deg, #6c3dae, #8a4edb, #5c2d91);
+}
+
+/* Estilo do Container Principal e Fundo Pontilhado (Opcional) */
+.calls-container {
+    max-width: 800px; /* Limite de largura para desktop */
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    /* O fundo pontilhado da imagem é mais complexo e não essencial, mas vou simular o básico do layout */
+}
+
+/* Cabeçalho da Página */
+.header-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    margin-right: 15px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.page-title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+/* Estilo da Tabela */
+.calls-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+    /* Estilo da Linha de Cabeçalho (Pílula Roxo) */
+    .calls-table thead {
+        background: var(--header-gradient);
+        color: white;
+        border-radius: 30px; /* Formato de pílula */
+        margin-bottom: 10px; /* Espaço entre o cabeçalho e a primeira linha de dados */
+        display: table-header-group; /* Garante que o thead ocupe a largura total */
+    }
+
+        .calls-table thead tr {
+            display: flex;
+            padding: 10px 20px;
+        }
+
+    .calls-table th {
+        font-weight: bold;
+        text-align: left;
+        padding: 10px 5px;
+        white-space: nowrap;
+        /* Para arredondar as bordas nas pontas */
+    }
+
+        .calls-table th.id-col {
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+            width: 10%;
+            text-align: center;
+        }
+
+        .calls-table th.title-col {
+            width: 45%;
+        }
+
+        .calls-table th.status-col {
+            width: 25%;
+            text-align: center;
+        }
+
+        .calls-table th.date-col {
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            width: 20%;
+            text-align: right;
+        }
+
+    /* Estilo das Linhas de Dados */
+    .calls-table tbody tr {
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid var(--line-color); /* Linha divisória */
+        padding: 15px 20px;
+    }
+        /* Remover a borda da última linha */
+        .calls-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+    .calls-table td {
+        padding: 0 5px;
+        color: var(--text-color);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+        .calls-table td:nth-child(1) { /* ID */
+            width: 10%;
+            text-align: center;
+        }
+
+        .calls-table td:nth-child(2) { /* Título */
+            width: 45%;
+        }
+
+        .calls-table td:nth-child(3) { /* Status */
+            width: 25%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .calls-table td:nth-child(4) { /* Data de Abertura */
+            width: 20%;
+            text-align: right;
+        }
+
+/* Estilo dos Badges de Status */
+.status-badge {
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center;
+    min-width: 100px;
+    display: inline-block;
+}
+
+.status-aberto {
+    background-color: var(--status-aberto);
+}
+
+.status-em-progresso {
+    background-color: var(--status-em-progresso);
+}
+
+.status-resolvido {
+    background-color: var(--status-resolvido);
+}
+
+/* Media Query para Responsividade em telas pequenas (e.g., celulares) */
+@media screen and (max-width: 600px) {
+    .calls-container {
+        margin: 0;
+        padding: 10px;
+        border-radius: 0;
+    }
+
+    .calls-table thead {
+        display: none; /* Esconde o cabeçalho da tabela em mobile */
+    }
+
+    .calls-table tbody tr {
+        flex-direction: column; /* Coloca os dados em coluna */
+        align-items: flex-start;
+        padding: 15px;
+        margin-bottom: 10px;
+        border: 1px solid var(--line-color);
+        border-radius: 8px;
+    }
+
+    .calls-table td {
+        width: 100% !important; /* Cada célula ocupa a largura total */
+        text-align: left !important;
+        padding: 5px 0;
+        white-space: normal;
+    }
+
+        /* Adiciona o rótulo antes do dado (usando o atributo data-label) */
+        .calls-table td:before {
+            content: attr(data-label) ": ";
+            font-weight: bold;
+            color: var(--primary-purple);
+            display: inline-block;
+            min-width: 120px;
+        }
+
+        .calls-table td:nth-child(3) { /* Status no mobile */
+            justify-content: flex-start;
+        }
+
+    .status-badge {
+        margin-left: 5px; /* Ajuste para melhor alinhamento com o rótulo */
+    }
+}
