@@ -56,7 +56,7 @@ namespace WebSuportePim.Controllers
             return View();
         }
 
-        public IActionResult ChamadoAbertos()
+        public IActionResult ChamadosAbertos()
         {
             return View();
         }

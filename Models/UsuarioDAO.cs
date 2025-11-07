@@ -1,5 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using System.Data.SqlClient;
+
 
 namespace WebSuportePim.Models
 {
@@ -14,7 +14,7 @@ namespace WebSuportePim.Models
                 conn.Open();
 
                
-                string query = "SELECT [Id_Usuario], [Nome], [Separtamento], [Email] FROM [Usuario] WHERE [Email] = @Email AND [Senha] = @Senha";
+                string query = "SELECT [Id_Usuario], [Nome], [Departamento], [Email] FROM [Usuario] WHERE [Email] = @Email AND [Senha] = @Senha";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {

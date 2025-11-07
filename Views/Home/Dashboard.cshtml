@@ -73,8 +73,7 @@
     <p>Departamento: @dep</p>
     <div class="sidebar">
         <h2>Menu</h2>
-        <a href="/Home/Dashboard">🏠 Tela Inicial</a>
-        <a href="/Chamados/Index">📋 Todos os Chamados</a>
+        <a asp-controller="Home" asp-action="ChamadosAbertos">Todos os Chamados</a>
         <a asp-controller="Home" asp-action="AbrirNovoChamado">Abrir Novo Chamado </a>
     </div>  
 
